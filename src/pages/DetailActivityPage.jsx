@@ -115,7 +115,7 @@ export const DetailActivityPage = () => {
 
     return (
         <MainLayout>
-            <main className="container mx-auto py-7 md:py-[43px] px-5 md:px-0">
+            <main className="container mx-auto py-7 md:py-[43px] px-5 md:px-0" data-cy='activity-item'>
                 <div className="flex flex-col md:flex-row items-center justify-between gap-5">
                     <div className="flex items-center justify-start w-full md:w-auto gap-[23px]">
                         <div className="flex items-center gap-[23px] w-full">
