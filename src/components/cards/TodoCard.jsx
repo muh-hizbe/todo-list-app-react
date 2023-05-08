@@ -21,7 +21,7 @@ export const TodoCard = ({ data, mutate, onDelete }) => {
     }
 
     const handleDelete = async () => {
-        onDelete(data?.id)        
+        onDelete(data?.id)
     }
 
     return (
@@ -57,6 +57,9 @@ export const TodoCard = ({ data, mutate, onDelete }) => {
                 <span
                     data-cy="todo-item-title"
                     className={`ml-[16px] text-lg leading-[27px] ${!isActive ? 'text-secondary' : 'text-[#888888] line-through'}`}
+                    onClick={() => {
+                        setIsEdit(() => true)
+                    }}
                 >
                     {data?.title}
                 </span>
