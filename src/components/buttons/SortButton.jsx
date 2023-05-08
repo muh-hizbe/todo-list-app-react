@@ -29,8 +29,8 @@ export const SortButton = ({ sortedBy, setSortedBy }) => {
                             alignOffset={-3}
                         >
                             <Menubar.Item
-                                className="text-[#4A4A4A] py-[14px] px-[21px] font-normal text-base group text-[13px] leading-none flex items-center gap-[15px] relative select-none outline-none data-[highlighted]:bg-gradient-to-br data-[highlighted]:bg-primary/20 rounded-t-[6px]"
-                                data-cy="sort-latest"
+                                className="text-[#4A4A4A] py-[14px] px-[21px] font-normal text-base group text-[13px] leading-none flex items-center gap-[15px] relative select-none outline-none data-[highlighted]:bg-gradient-to-br data-[highlighted]:bg-primary/20 rounded-t-[6px]"                                
+                                data-cy="sort-selection"
                                 onClick={() => handleSort('latest')}
                             >
                                 <div className="text-primary">
@@ -46,7 +46,7 @@ export const SortButton = ({ sortedBy, setSortedBy }) => {
                             </Menubar.Item>
                             <Menubar.Item
                                 className="text-[#4A4A4A] py-[14px] px-[21px] font-normal text-base group text-[13px] leading-none flex items-center gap-[15px] relative select-none outline-none data-[highlighted]:bg-gradient-to-br data-[highlighted]:bg-primary/20"
-                                data-cy="sort-oldest"
+                                data-cy="sort-selection"
                                 onClick={() => handleSort('oldest')}
                             >
                                 <div className="text-primary">
@@ -62,7 +62,7 @@ export const SortButton = ({ sortedBy, setSortedBy }) => {
                             </Menubar.Item>
                             <Menubar.Item
                                 className="text-[#4A4A4A] py-[14px] px-[21px] font-normal text-base group text-[13px] leading-none flex items-center gap-[15px] relative select-none outline-none data-[highlighted]:bg-gradient-to-br data-[highlighted]:bg-primary/20"
-                                data-cy="sort-az"
+                                data-cy="sort-selection"
                                 onClick={() => handleSort('az')}
                             >
                                 <div className="text-primary">
@@ -78,7 +78,7 @@ export const SortButton = ({ sortedBy, setSortedBy }) => {
                             </Menubar.Item>
                             <Menubar.Item
                                 className="text-[#4A4A4A] py-[14px] px-[21px] font-normal text-base group text-[13px] leading-none flex items-center gap-[15px] relative select-none outline-none data-[highlighted]:bg-gradient-to-br data-[highlighted]:bg-primary/20"
-                                data-cy="sort-za"
+                                data-cy="sort-selection"
                                 onClick={() => handleSort('za')}
                             >
                                 <div className="text-primary">
@@ -94,7 +94,7 @@ export const SortButton = ({ sortedBy, setSortedBy }) => {
                             </Menubar.Item>
                             <Menubar.Item
                                 className="text-[#4A4A4A] py-[14px] px-[21px] font-normal text-base group text-[13px] leading-none flex items-center gap-[15px] relative select-none outline-none data-[highlighted]:bg-gradient-to-br data-[highlighted]:bg-primary/20 rounded-b-[6px]"
-                                data-cy="sort-unfinished"
+                                data-cy="sort-selection"
                                 onClick={() => handleSort('unfinished')}
                             >
                                 <div className="text-primary">

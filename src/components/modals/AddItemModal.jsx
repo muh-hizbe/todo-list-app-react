@@ -219,6 +219,7 @@ export const AddItemModal = ({ open, setOpen, mutate, activity }) => {
                                 className={`rounded-[45px] w-[150px] h-[54px] bg-primary text-white text-lg leading-[27px] font-semibold ${!isFilled ? '!bg-primary/50 cursor-not-allowed' : ''}`}
                                 onClick={handleSubmit}
                                 data-cy="modal-add-save-button"
+                                disabled={isFilled ? false : true}
                             >
                                 {loading ?
                                     <ImSpinner2
