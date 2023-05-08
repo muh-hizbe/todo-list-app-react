@@ -78,10 +78,10 @@ export const DetailActivityPage = () => {
                 }
                 if (type === 'az') {
                     if (titleA < titleB) {
-                        return -1;
+                        return 1;
                     }
                     if (titleA > titleB) {
-                        return 1;
+                        return -1;
                     }
                     if (titleA === titleB) {
                         return 0;
@@ -89,10 +89,10 @@ export const DetailActivityPage = () => {
                 }
                 if (type === 'za') {
                     if (titleA > titleB) {
-                        return -1;
+                        return 1;
                     }
                     if (titleA < titleB) {
-                        return 1;
+                        return -1;
                     }
                     if (titleA === titleB) {
                         return 0;
