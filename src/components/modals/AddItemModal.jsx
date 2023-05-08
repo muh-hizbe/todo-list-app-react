@@ -52,7 +52,8 @@ export const AddItemModal = ({ open, setOpen, mutate, activity }) => {
                     ${className}`}
                 {...props}
                 ref={forwardedRef}
-                data-cy={`modal-add-priority-${props?.value}`}
+                // data-cy={`modal-add-priority-${props?.value}`}
+                data-cy={`modal-add-priority-item`}
             >
                 <Select.ItemText>
                     {children}
@@ -164,7 +165,7 @@ export const AddItemModal = ({ open, setOpen, mutate, activity }) => {
                                             >
                                                 <Select.ScrollUpButton />
                                                 <Select.Viewport className="divide-y w-[205px]">
-                                                    <SelectItem value="very-high">
+                                                    <SelectItem value="very-high" data-cy="modal-add-priority-item">
                                                         <div className='flex items-center gap-[19px]'>
                                                             <span
                                                                 className={`bg-[#ED4C5C] h-[14px] w-[14px] rounded-full`}
@@ -216,7 +217,6 @@ export const AddItemModal = ({ open, setOpen, mutate, activity }) => {
                         <div className="flex items-center justify-end px-10 pt-[15px] pb-[19px]">
                             <button
                                 className={`rounded-[45px] w-[150px] h-[54px] bg-primary text-white text-lg leading-[27px] font-semibold ${!isFilled ? '!bg-primary/50 cursor-not-allowed' : ''}`}
-                                disabled={isFilled ? false : true}
                                 onClick={handleSubmit}
                                 data-cy="modal-add-save-button"
                             >
