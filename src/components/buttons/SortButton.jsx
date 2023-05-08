@@ -2,13 +2,11 @@ import { TbArrowsSort, TbSortAscending, TbSortAscendingLetters, TbSortDescending
 import { BiCheck } from "react-icons/bi"
 import * as Menubar from '@radix-ui/react-menubar'
 import { TbSortDescendingLetters } from "react-icons/tb"
-import { useState } from "react"
 
-export const SortButton = ({ sortedBy, setSortedBy }) => {
-    const [open, setOpen] = useState(false)
-
+export const SortButton = ({ sortedBy, setSortedBy, onSort }) => {
     const handleSort = (type) => {
-        setSortedBy(type)
+        setSortedBy(() => type)
+        onSort(type)
     }
 
     return (

@@ -35,10 +35,11 @@ export const TodoCard = ({ data, mutate, onDelete }) => {
                     className="flex h-[25px] w-[25px] appearance-none items-center justify-center border bg-white"
                     onCheckedChange={handleUpdateStatusTodo}
                     checked={isActive}
-                    id="c1"
+                    id={data?.id}
+                    key={data?.id}
                     data-cy="todo-item-checkbox"
                 >
-                    <Checkbox.Indicator className="bg-primary h-[25px] w-[25px] flex items-center justify-center">
+                    <Checkbox.Indicator asChild className="bg-primary h-[25px] w-[25px] flex items-center justify-center">
                         <HiCheck className='text-white' />
                     </Checkbox.Indicator>
                 </Checkbox.Root>

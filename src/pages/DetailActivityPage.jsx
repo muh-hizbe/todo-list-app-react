@@ -62,7 +62,7 @@ export const DetailActivityPage = () => {
             })
     }
 
-    const handleSort = () => {
+    const handleSort = (type = 'latest') => {
         const newTodos = todos
 
         if (newTodos?.length > 0) {
@@ -70,33 +70,37 @@ export const DetailActivityPage = () => {
                 const titleA = a.title.toLowerCase()
                 const titleB = b.title.toLowerCase()
 
-                if (sortedBy === 'latest') {
-                    return a.id - b.id
-                }
-                if (sortedBy === 'oldest') {
+                if (type === 'latest') {
                     return b.id - a.id
                 }
-                if (sortedBy === 'az') {
-                    if (titleA < titleB) {
-                        return 1;
-                    }
-                    if (titleA > titleB) {
-                        return -1;
-                    }
-                    return 0;
+                if (type === 'oldest') {
+                    return a.id - b.id
                 }
-                if (sortedBy === 'za') {
-                    if (titleA > titleB) {
-                        return 1;
-                    }
+                if (type === 'az') {
                     if (titleA < titleB) {
                         return -1;
                     }
-                    return 0;
+                    if (titleA > titleB) {
+                        return 1;
+                    }
+                    if (titleA === titleB) {
+                        return 0;
+                    }
+                }
+                if (type === 'za') {
+                    if (titleA > titleB) {
+                        return -1;
+                    }
+                    if (titleA < titleB) {
+                        return 1;
+                    }
+                    if (titleA === titleB) {
+                        return 0;
+                    }
                 }
 
                 // unfinished
-                return a.is_active - b.is_active
+                return b.is_active - a.is_active
             })
 
             setTodos(() => newTodos)
@@ -165,7 +169,7 @@ export const DetailActivityPage = () => {
                     </div>
 
                     <div className="flex items-center justify-end gap-[18px] w-full md:w-auto">
-                        <SortButton sortedBy={sortedBy} setSortedBy={setSortedBy} />
+                        <SortButton sortedBy={sortedBy} setSortedBy={setSortedBy} onSort={handleSort} />
                         <AddButton loading={false} onClick={() => setOpenNewItemModal(true)} dataCy={'todo-add-button'} />
                         <AddItemModal open={openNewItemModal} setOpen={setOpenNewItemModal} activity={activity} mutate={fetchTodos} />
                     </div>
