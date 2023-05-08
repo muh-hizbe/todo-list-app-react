@@ -13,7 +13,7 @@ export const HomePage = () => {
 
     const fetchActivities = () => {
         setLoading(() => true)
-        fetch("https://todo.api.devcode.gethired.id/activity-groups?email=ivan%40skyshi.com")
+        fetch("https://todo.api.devcode.gethired.id/activity-groups?email=muh.hizbe@gmail.com")
             .then(resp => resp.json())
             .then(result => {
                 setActivities(result?.data)
@@ -26,7 +26,7 @@ export const HomePage = () => {
             setLoadingButton(() => true)
             const payload = {
                 title: "New Activity",
-                email: "ivan@skyshi.com"
+                email: "muh.hizbe@gmail.com"
             }
     
             axios.post("https://todo.api.devcode.gethired.id/activity-groups", payload)
