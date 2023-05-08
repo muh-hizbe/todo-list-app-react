@@ -11,7 +11,7 @@ export const NotifModal = ({ open, setOpen }) => {
         <>
             <Dialog.Root open={open} onOpenChange={setOpen} key={'notif'}>
                 <Dialog.Portal>
-                    <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow data-[state=closed]:animate-overlayHide fixed inset-0" />
+                    {/* <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow data-[state=closed]:animate-overlayHide fixed inset-0" /> */}
                     <Dialog.Content
                         asChild
                         data-cy="modal-information"
