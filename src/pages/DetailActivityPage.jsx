@@ -137,6 +137,9 @@ export const DetailActivityPage = () => {
                             {!isEditTitle ?
                                 <h1 data-cy="todo-title"
                                     className="text-secondary text-base md:text-4xl md:leading-[54px] font-bold"
+                                    onClick={() => {
+                                        setIsEditTitle(() => true)
+                                    }}
                                 >
                                     {activity?.title}
                                 </h1>
