@@ -35,7 +35,7 @@ export const DeleteButton = ({ onDelete, text, itemName, dataCy }) => {
                 </Dialog.Trigger>
 
                 <Dialog.Portal>
-                    {/* <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow data-[state=closed]:animate-overlayHide fixed inset-0" /> */}
+                    <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow data-[state=closed]:animate-overlayHide fixed inset-0" />
                     <Dialog.Content
                         data-cy="modal-delete"
                         asChild
