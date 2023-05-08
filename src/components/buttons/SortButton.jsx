@@ -2,8 +2,10 @@ import { TbArrowsSort, TbSortAscending, TbSortAscendingLetters, TbSortDescending
 import { BiCheck } from "react-icons/bi"
 import * as Menubar from '@radix-ui/react-menubar'
 import { TbSortDescendingLetters } from "react-icons/tb"
+import { useState } from "react"
 
 export const SortButton = ({ sortedBy, setSortedBy }) => {
+    const [open, setOpen] = useState(false)
 
     const handleSort = (type) => {
         setSortedBy(type)
@@ -11,7 +13,9 @@ export const SortButton = ({ sortedBy, setSortedBy }) => {
 
     return (
         <div>
-            <Menubar.Root className="flex rounded-full">
+            <Menubar.Root
+                className="flex rounded-full"
+            >
                 <Menubar.Menu>
                     <Menubar.Trigger className="w-[54px] h-[54px] rounded-full border text-[#888888] focus:outline-none" data-cy="todo-sort-button">
                         <TbArrowsSort className="mx-auto w-[24px] h-[24px]" data-cy="tabler:arrow-sort" />

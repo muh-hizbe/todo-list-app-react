@@ -1,12 +1,17 @@
 import * as Dialog from '@radix-ui/react-dialog';
+import { useEffect } from 'react';
 import { RiErrorWarningLine } from "react-icons/ri"
 
-export const NotifModal = ({open, setOpen}) => {
+export const NotifModal = ({ open, setOpen }) => {
+    useEffect(() => {
+        setTimeout(() => (document.body.style.pointerEvents = ""), 0)
+    }, [open])
+
     return (
         <>
             <Dialog.Root open={open} onOpenChange={setOpen} key={'notif'}>
                 <Dialog.Portal>
-                    {/* <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow data-[state=closed]:animate-overlayHide fixed inset-0" /> */}
+                    <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow data-[state=closed]:animate-overlayHide fixed inset-0" />
                     <Dialog.Content
                         asChild
                         data-cy="modal-information"
