@@ -40,6 +40,7 @@ export const ActivityCard = ({ data, dataCy, onDelete }) => {
                     text={'Apakah anda yakin menghapus activity'}
                     itemName={data?.title}
                     withNotif={true}
+                    dataCy='activity-item-delete-button'
                 />
             </div>
         </div>

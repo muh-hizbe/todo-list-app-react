@@ -4,7 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { useEffect, useState } from "react";
 import { ImSpinner2 } from "react-icons/im";
 
-export const DeleteButton = ({ onDelete, text, itemName }) => {
+export const DeleteButton = ({ onDelete, text, itemName, dataCy }) => {
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false)
 
@@ -70,8 +70,7 @@ export const DeleteButton = ({ onDelete, text, itemName }) => {
                                     <button
                                         className="rounded-[45px] w-[150px] h-[54px] bg-[#ED4C5C] text-white text-lg leading-[27px] font-semibold"
                                         onClick={handleDelete}
-                                        // data-cy="modal-delete-confirm-button"
-                                        data-cy="activity-item-delete-button"                                    
+                                        data-cy={dataCy}
                                     >
                                         {loading ?
                                             <ImSpinner2
