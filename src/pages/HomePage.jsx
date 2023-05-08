@@ -5,11 +5,13 @@ import { AddButton } from "../components/buttons/AddButton";
 import axios from "axios";
 import { ListActivityCards } from "../components/sections/ListActivityCards";
 import { LoadingSection } from "../components/sections/LoadingSection";
+import { NotifModal } from "../components/modals/NotifModal";
 
 export const HomePage = () => {
     const [loadingButton, setLoadingButton] = useState(false)
     const [loading, setLoading] = useState(true)
     const [activities, setActivities] = useState([])
+    const [openToast, setOpenToast] = useState(false)
 
     const fetchActivities = () => {
         setLoading(() => true)
@@ -28,7 +30,7 @@ export const HomePage = () => {
                 title: "New Activity",
                 email: "muh.hizbe@gmail.com"
             }
-    
+
             axios.post("https://todo.api.devcode.gethired.id/activity-groups", payload)
                 .then(() => {
                     fetchActivities()
@@ -36,8 +38,16 @@ export const HomePage = () => {
                 .catch((err) => console.log("galga", err))
                 .finally(() => {
                     setLoadingButton(() => false)
-                })            
+                })
         }
+    }
+
+    const handleDeleteActivity = (id) => {
+        axios.delete(`https://todo.api.devcode.gethired.id/activity-groups/${id}`)
+            .then(resp => {
+                setOpenToast(() => true)
+                fetchActivities()
+            })
     }
 
     useEffect(() => {
@@ -56,6 +66,8 @@ export const HomePage = () => {
                     <AddButton loading={loadingButton} onClick={handleAddActivity} dataCy="activity-add-button" />
                 </div>
 
+                <NotifModal open={openToast} setOpen={setOpenToast} />
+
                 {(activities?.length === 0 && !loading) ?
                     <div className="py-[65px]" onClick={handleAddActivity}>
                         <EmptyState />
@@ -63,7 +75,7 @@ export const HomePage = () => {
                     :
                     <>
                         {!loading ?
-                            <ListActivityCards activities={activities} mutate={fetchActivities} />
+                            <ListActivityCards activities={activities} mutate={fetchActivities} onDelete={handleDeleteActivity} />
                             :
                             <LoadingSection />
                         }

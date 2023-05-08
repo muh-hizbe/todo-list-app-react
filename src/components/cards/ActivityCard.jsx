@@ -1,16 +1,12 @@
 import { useNavigate } from "react-router-dom"
 import dayjs from "dayjs"
 import { DeleteButton } from "../buttons/DeleteButton"
-import axios from "axios"
 
-export const ActivityCard = ({ data, mutate, dataCy }) => {
+export const ActivityCard = ({ data, dataCy, onDelete }) => {
     const navigate = useNavigate()
 
     const handleDelete = async () => {
-        await axios.delete(`https://todo.api.devcode.gethired.id/activity-groups/${data?.id}`)
-            .then(resp => {
-                mutate()
-            })
+        onDelete(data?.id)        
     }
 
     const handleRouteDetail = (e) => {
