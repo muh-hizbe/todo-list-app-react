@@ -28,11 +28,10 @@ export const DeleteButton = ({ onDelete, text, itemName, dataCy }) => {
     return (
         <>
             <Dialog.Root open={open} onOpenChange={setOpen} key={'confirm'}>
-                <Dialog.Trigger>
+                <Dialog.Trigger data-cy={dataCy}>
                     <button
                         onClick={(e) => e.stopPropagation()}
                         className="hover:text-red-500"
-                        data-cy={dataCy}
                     >
                         <HiOutlineTrash />
                     </button>
