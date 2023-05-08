@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { DetailActivityPage } from "../pages/DetailActivityPage";
+import { DetailActivityPage, activityLoader } from "../pages/DetailActivityPage";
 import { HomePage } from "../pages/HomePage";
 import Error404Page from "../pages/Error404Page";
 
@@ -11,6 +11,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "/detail/:id",
+        loader: activityLoader,
         element: <DetailActivityPage />,
     },
 ]);
