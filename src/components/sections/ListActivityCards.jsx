@@ -7,7 +7,7 @@ export const ListActivityCards = ({ activities, mutate }) => {
         >
             {activities?.map((item, idx) => (
                 <ActivityCard key={idx}
-                    data-cy={`activity-item`}
+                    dataCy={`activity-item`}
                     data={item}
                     mutate={mutate}
                 />

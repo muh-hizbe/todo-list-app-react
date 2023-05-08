@@ -3,7 +3,7 @@ import dayjs from "dayjs"
 import { DeleteButton } from "../buttons/DeleteButton"
 import axios from "axios"
 
-export const ActivityCard = ({ data, mutate }) => {
+export const ActivityCard = ({ data, mutate, dataCy }) => {
     const navigate = useNavigate()
 
     const handleDelete = async () => {
@@ -22,6 +22,7 @@ export const ActivityCard = ({ data, mutate }) => {
         <div
             className="rounded-[10px] h-[150px] md:h-[234px] p-[17px] md:p-[22px] bg-white shadow-lg mt-[37px] md:mt-[55px] cursor-pointer flex flex-col justify-between"
             onClick={handleRouteDetail}
+            data-cy={dataCy}
         >
             <h4
                 data-cy="activity-item-title"
