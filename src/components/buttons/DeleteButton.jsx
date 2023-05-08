@@ -70,7 +70,8 @@ export const DeleteButton = ({ onDelete, text, itemName }) => {
                                     <button
                                         className="rounded-[45px] w-[150px] h-[54px] bg-[#ED4C5C] text-white text-lg leading-[27px] font-semibold"
                                         onClick={handleDelete}
-                                        data-cy="modal-delete-confirm-button"
+                                        // data-cy="modal-delete-confirm-button"
+                                        data-cy="activity-item-delete-button"                                    
                                     >
                                         {loading ?
                                             <ImSpinner2
