@@ -137,6 +137,7 @@ export const DetailActivityPage = () => {
                                     value={activityTitle}
                                     onChange={(e) => setActivityTitle(e?.target?.value)}
                                     onBlur={handleUpdateActivity}
+                                    data-cy="todo-title"
                                 />
                             }
                         </div>

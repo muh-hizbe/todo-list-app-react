@@ -30,7 +30,7 @@ export const DeleteButton = ({ onDelete, text, itemName, withNotif = false }) =>
         <>
             <Dialog.Root open={open} onOpenChange={setOpen} key={'confirm'}>
                 <Dialog.Trigger asChild>
-                    <button data-cy="activity-item-delete-butotn"
+                    <button data-cy="activity-item-delete-button"
                         onClick={(e) => e.stopPropagation()}
                         className="hover:text-red-500"
                     >
