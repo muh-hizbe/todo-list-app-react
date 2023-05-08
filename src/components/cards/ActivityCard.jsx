@@ -6,7 +6,7 @@ export const ActivityCard = ({ data, dataCy, onDelete }) => {
     const navigate = useNavigate()
 
     const handleDelete = async () => {
-        onDelete(data?.id)        
+        onDelete(data?.id)
     }
 
     const handleRouteDetail = (e) => {
@@ -16,16 +16,20 @@ export const ActivityCard = ({ data, dataCy, onDelete }) => {
 
     return (
         <div
-            className="rounded-[10px] h-[150px] md:h-[234px] p-[17px] md:p-[22px] bg-white shadow-lg mt-[37px] md:mt-[55px] cursor-pointer flex flex-col justify-between"
-            onClick={handleRouteDetail}
+            className="rounded-[10px] h-[150px] md:h-[234px] p-[17px] md:p-[22px] bg-white shadow-lg mt-[37px] md:mt-[55px] flex flex-col justify-between"
             data-cy={dataCy}
         >
-            <h4
-                data-cy="activity-item-title"
-                className="font-bold text-secondary text-base md:text-lg leading-[21px] md:leading-[27px]"
+            <div
+                className="cursor-pointer h-full"
+                onClick={handleRouteDetail}
             >
-                {data?.title}
-            </h4>
+                <h4
+                    data-cy="activity-item-title"
+                    className="font-bold text-secondary text-base md:text-lg leading-[21px] md:leading-[27px]"
+                >
+                    {data?.title}
+                </h4>
+            </div>
 
             <div
                 className="flex items-center justify-between text-[#888888]"

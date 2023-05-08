@@ -78,7 +78,7 @@ export const TodoCard = ({ data, mutate }) => {
                 onDelete={handleDelete}
                 text={'Apakah anda yakin menghapus item'}
                 itemName={data?.title}
-                data-cy="todo-item-delete-button"
+                dataCy="todo-item-delete-button"
             />
         </div>
     )
