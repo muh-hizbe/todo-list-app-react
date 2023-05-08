@@ -158,7 +158,7 @@ export const DetailActivityPage = () => {
                 </div>
 
                 {(todos?.length === 0 && !loading) ?
-                    <div className="py-[65px]">
+                    <div className="py-[65px]" onClick={() => setOpenNewItemModal(() => true)}>
                         <TodoEmptyState />
                     </div>
                     :

@@ -9,6 +9,7 @@ export const EmptyState = () => {
             <img
                 src={activityEmptyStateImage}
                 loading="lazy"
+                className='mx-auto'
                 alt="activity-empty-state"
             />
         </div>

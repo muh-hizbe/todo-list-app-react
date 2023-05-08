@@ -9,6 +9,7 @@ export const TodoEmptyState = () => {
             <img
                 src={todoEmptyStateImage}
                 loading="lazy"
+                className='mx-auto'
                 alt="todo-empty-state"
             />
         </div>

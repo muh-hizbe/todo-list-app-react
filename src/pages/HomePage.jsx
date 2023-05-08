@@ -57,7 +57,7 @@ export const HomePage = () => {
                 </div>
 
                 {(activities?.length === 0 && !loading) ?
-                    <div className="py-[65px]">
+                    <div className="py-[65px]" onClick={handleAddActivity}>
                         <EmptyState />
                     </div>
                     :
