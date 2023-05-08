@@ -5,7 +5,7 @@ import { HiCheck, HiOutlinePencil } from 'react-icons/hi'
 import { DeleteButton } from '../buttons/DeleteButton'
 import { EditItemModal } from '../modals/EditItemModal'
 
-export const TodoCard = ({ data, mutate }) => {
+export const TodoCard = ({ data, mutate, onDelete }) => {
     const [isEdit, setIsEdit] = useState(false)
     const [isActive, setIsActive] = useState(data?.is_active === 0 ? true : false)
 
@@ -21,10 +21,7 @@ export const TodoCard = ({ data, mutate }) => {
     }
 
     const handleDelete = async () => {
-        await axios.delete(`https://todo.api.devcode.gethired.id/todo-items/${data?.id}`)
-            .then(resp => {
-                mutate()
-            })
+        onDelete(data?.id)        
     }
 
     return (
@@ -39,10 +36,9 @@ export const TodoCard = ({ data, mutate }) => {
                     onCheckedChange={handleUpdateStatusTodo}
                     checked={isActive}
                     id="c1"
+                    data-cy="todo-item-checkbox"
                 >
-                    <Checkbox.Indicator className="bg-primary h-[25px] w-[25px] flex items-center justify-center"
-                        data-cy="todo-item-checkbox"
-                    >
+                    <Checkbox.Indicator className="bg-primary h-[25px] w-[25px] flex items-center justify-center">
                         <HiCheck className='text-white' />
                     </Checkbox.Indicator>
                 </Checkbox.Root>

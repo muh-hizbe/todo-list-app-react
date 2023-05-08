@@ -10,6 +10,7 @@ import { FaChevronLeft } from "react-icons/fa"
 import { HiOutlinePencil } from "react-icons/hi";
 import { SortButton } from "../components/buttons/SortButton";
 import { AddItemModal } from "../components/modals/AddItemModal";
+import { NotifModal } from "../components/modals/NotifModal";
 
 export async function activityLoader({ params }) {
     // const resp = await axios.get(`https://todo.api.devcode.gethired.id/activity-groups/${params?.id}`)
@@ -28,6 +29,7 @@ export const DetailActivityPage = () => {
     const [openNewItemModal, setOpenNewItemModal] = useState(false)
     const [sortedBy, setSortedBy] = useState('latest')
     const [todos, setTodos] = useState([])
+    const [openToast, setOpenToast] = useState(false)
 
     const fetchTodos = async () => {
         setLoading(() => true)
@@ -50,6 +52,14 @@ export const DetailActivityPage = () => {
             })
             .catch((err) => console.log("galga", err))
             .finally(() => setIsEditTitle(() => false))
+    }
+
+    const handleDeleteTodoItem = async (id) => {
+        await axios.delete(`https://todo.api.devcode.gethired.id/todo-items/${id}`)
+            .then(() => {
+                setOpenToast(() => true)
+                fetchTodos()
+            })
     }
 
     const handleSort = () => {
@@ -158,6 +168,8 @@ export const DetailActivityPage = () => {
                     </div>
                 </div>
 
+                <NotifModal open={openToast} setOpen={setOpenToast} text={'Item berhasil dihapus'} />
+
                 {(todos?.length === 0 && !loading) ?
                     <div className="py-[65px]" onClick={() => setOpenNewItemModal(() => true)}>
                         <TodoEmptyState />
@@ -165,7 +177,7 @@ export const DetailActivityPage = () => {
                     :
                     <div className="mt-[48px]">
                         {!loading ?
-                            <ListTodoCard todos={todos} mutate={fetchTodos} />
+                            <ListTodoCard todos={todos} mutate={fetchTodos} onDelete={handleDeleteTodoItem} />
                             :
                             <LoadingSection />
                         }

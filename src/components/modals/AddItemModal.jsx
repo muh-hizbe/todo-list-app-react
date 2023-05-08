@@ -67,7 +67,7 @@ export const AddItemModal = ({ open, setOpen, mutate, activity }) => {
 
 
     useEffect(() => {
-        if (title && title !== '' && priority && priority !== '') {
+        if (title && title !== '') {
             setIsFilled(() => true)
         } else {
             setIsFilled(() => false)
@@ -217,9 +217,9 @@ export const AddItemModal = ({ open, setOpen, mutate, activity }) => {
                         <div className="flex items-center justify-end px-10 pt-[15px] pb-[19px]">
                             <button
                                 className={`rounded-[45px] w-[150px] h-[54px] bg-primary text-white text-lg leading-[27px] font-semibold ${!isFilled ? '!bg-primary/50 cursor-not-allowed' : ''}`}
+                                disabled={isFilled ? false : true}
                                 onClick={handleSubmit}
                                 data-cy="modal-add-save-button"
-                                disabled={isFilled ? false : true}
                             >
                                 {loading ?
                                     <ImSpinner2

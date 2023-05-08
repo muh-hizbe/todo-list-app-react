@@ -2,7 +2,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { useEffect } from 'react';
 import { RiErrorWarningLine } from "react-icons/ri"
 
-export const NotifModal = ({ open, setOpen }) => {
+export const NotifModal = ({ open, setOpen, text = 'Activity berhasil dihapus' }) => {
     useEffect(() => {
         setTimeout(() => (document.body.style.pointerEvents = ""), 0)
     }, [open])
@@ -28,7 +28,7 @@ export const NotifModal = ({ open, setOpen }) => {
                                         data-cy="modal-information-title"
                                         className="text-lg leading-[27px] text-center text-secondary"
                                     >
-                                        Activity berhasil dihapus
+                                        {text}
                                     </p>
                                 </div>
                             </div>
