@@ -181,7 +181,7 @@ export const AddItemModal = ({ open, setOpen, mutate, activity }) => {
                                                             High
                                                         </div>
                                                     </SelectItem>
-                                                    <SelectItem value="medium">
+                                                    <SelectItem value="normal">
                                                         <div className='flex items-center gap-[19px]'>
                                                             <span
                                                                 className={`bg-[#00A790] h-[14px] w-[14px] rounded-full`}

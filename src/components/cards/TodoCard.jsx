@@ -1,6 +1,6 @@
 import * as Checkbox from '@radix-ui/react-checkbox'
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { HiCheck, HiOutlinePencil } from 'react-icons/hi'
 import { DeleteButton } from '../buttons/DeleteButton'
 import { EditItemModal } from '../modals/EditItemModal'
@@ -23,6 +23,8 @@ export const TodoCard = ({ data, mutate, onDelete }) => {
     const handleDelete = async () => {
         onDelete(data?.id)
     }
+
+    // useEffect(() => {}, [data])
 
     return (
         <div
@@ -48,7 +50,7 @@ export const TodoCard = ({ data, mutate, onDelete }) => {
                     data-cy="todo-item-priority-indicator"
                     className={`${data?.priority === 'very-high' ? 'bg-[#ED4C5C]' :
                         data?.priority === 'high' ? 'bg-[#F8A541]' :
-                            data?.priority === 'medium' ? 'bg-[#00A790]' :
+                            data?.priority === 'normal' ? 'bg-[#00A790]' :
                                 data?.priority === 'low' ? 'bg-[#428BC1]' :
                                     data?.priority === 'very-low' ? 'bg-[#8942C1]' : ''
                         } h-[9px] w-[9px] rounded-full ml-[22px]`}

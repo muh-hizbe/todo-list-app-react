@@ -7,7 +7,7 @@ export const ListTodoCard = ({ todos, mutate, onDelete }) => {
         >
             {todos?.map((item, idx) => (
                 <TodoCard
-                    key={idx}
+                    key={`todo-item-${idx}`}
                     data-cy={`todo-item-${idx}`}
                     data={item}
                     mutate={mutate}
