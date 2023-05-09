@@ -34,7 +34,9 @@ export const DeleteButton = ({ onDelete, text, itemName, dataCy }) => {
                     <HiOutlineTrash />
                 </Dialog.Trigger>
 
-                <Dialog.Portal data-cy="modal-delete">
+                <Dialog.Portal
+                    // data-cy="modal-delete"
+                >
                     <Dialog.Overlay className="bg-black/50 data-[state=open]:animate-overlayShow data-[state=closed]:animate-overlayHide fixed inset-0" />
                     <Dialog.Content
                         data-cy="modal-delete"
